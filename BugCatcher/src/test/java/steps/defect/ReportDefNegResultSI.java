@@ -27,7 +27,7 @@ public class ReportDefNegResultSI {
     @When("The employee selects high priority")
     public void the_employee_selects_high_priority() {
         // Write code here that turns the phrase above into concrete actions
-        defectReportPage.priorityBar.sendKeys("3");
+        defectReportPage.priorityBar.sendKeys(Keys.ARROW_RIGHT);
     }
 
     @When("The employee selects low severity")
@@ -41,7 +41,7 @@ public class ReportDefNegResultSI {
         // Write code here that turns the phrase above into concrete actions
         try {
             driver.switchTo().alert().accept();
-            fail("was present from scenario 1");
+            fail("Alert pops up from scenario 1");
         } catch (NoAlertPresentException e){
         }
 

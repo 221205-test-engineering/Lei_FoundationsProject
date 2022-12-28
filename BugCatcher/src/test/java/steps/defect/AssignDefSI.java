@@ -15,6 +15,7 @@ import runners.BugCatcherRunner;
 import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class AssignDefSI {
 
@@ -48,16 +49,24 @@ public class AssignDefSI {
 //        dropEmployee.selectByIndex(1);
         driver.findElement(By.xpath("//div/input")).sendKeys("ryeGuy");
     }
-
+    int defectTableSize;
     @When("The manager clicks assign")
     public void the_manager_clicks_assign() {
         // Write code here that turns the phrase above into concrete actions
+        defectTableSize = driver.findElements(By.xpath("/html/body/div/table/tbody/tr")).size();
         managerPage.assignButton.click();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Then("The defect should disappear from the list")
     public void the_defect_should_disappear_from_the_list() {
         // Write code here that turns the phrase above into concrete actions
-       int x=1; // big loool
+        int newdefectTableSize = driver.findElements(By.xpath("/html/body/div/table/tbody/tr")).size();
+       assertTrue(newdefectTableSize< defectTableSize);
     }
 }

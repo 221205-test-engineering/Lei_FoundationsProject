@@ -49,11 +49,11 @@ public class NavigationSI {
         //assertEquals("Home" , driver.getTitle().split(" ")[1]);
     }
 
-//    @When("The manager clicks on Test Cases")
-//    public void the_manager_clicks_on_test_cases() {
-//        // Write code here that turns the phrase above into concrete actions
-//        managerPage.testcasesLink.click();
-//    }
+    @When("The manager clicks on Test Cases")
+    public void the_manager_clicks_on_test_cases() {
+        // Write code here that turns the phrase above into concrete actions
+        managerPage.testcasesLink.click();
+    }
 
     @When("The manager clicks on {string}")
     public void the_manager_clicks_on(String link) {
